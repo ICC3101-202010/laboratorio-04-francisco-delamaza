@@ -10,6 +10,14 @@ namespace Laboratorio4
     {
         static void Main(string[] args)
         {
+            Sensor r = new Recepcion();
+            Central c = new Central(r);
+            
+            c.Empezar();
+            Console.Read();
+            
+
+            
         }
     }
 }

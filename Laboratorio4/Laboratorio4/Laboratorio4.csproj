@@ -43,8 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Almacenamiento.cs" />
+    <Compile Include="Central.cs" />
+    <Compile Include="empaque.cs" />
+    <Compile Include="Ensamblaje.cs" />
+    <Compile Include="Sensor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recepcion.cs" />
+    <Compile Include="verificacion.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
