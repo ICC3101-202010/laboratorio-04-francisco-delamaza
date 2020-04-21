@@ -15,25 +15,31 @@ namespace Laboratorio4
             get => memoria;
             set => memoria = value;
         }
-        bool encendida = false;
-        Sensor n = new Almacenamiento();
+        public bool encendida = false;
+        public bool Encendida  // read-write instance property
+        {
+            get => encendida;
+            set => encendida = value;
+        }
+        
         public void Encender()
         {
             
             encendida = true;
-            recepcion();
+            
+
             Console.WriteLine("Se ha encendido r");
             
             
-            n.Encender();
-            
+            new Task(recepcion).Start();
 
         }
         public void Apagar()
         {
             encendida = false;
             Console.WriteLine("se Apago la maquina r");
-            n.Apagar();
+           
+            
         }
         public void Reiniciar()
         {
@@ -45,10 +51,11 @@ namespace Laboratorio4
         {
             while (encendida == true)
             {
+                
                 memoria += 1;
-                System.Threading.Thread.Sleep(100);
-                Console.WriteLine("+=1");
-                if (memoria == 20)
+                System.Threading.Thread.Sleep(1000);
+                
+                if (memoria == 51)
                 {
                     Console.WriteLine("Recepcion Memoria llena");
                     Apagar();

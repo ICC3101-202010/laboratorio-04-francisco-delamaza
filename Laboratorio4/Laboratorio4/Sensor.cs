@@ -13,6 +13,11 @@ namespace Laboratorio4
             get;
             set;
         }
+        bool Encendida
+        {
+            get;
+            set;
+        }
         
         void Encender();
         void Apagar();

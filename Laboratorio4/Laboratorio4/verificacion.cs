@@ -14,24 +14,29 @@ namespace Laboratorio4
             get => memoria;
             set => memoria = value;
         }
-        bool encendida = false;
-        Sensor n = new empaque();
+        public bool encendida = false;
+        public bool Encendida  // read-write instance property
+        {
+            get => encendida;
+            set => encendida = value;
+        }
+        
         public void Encender()
         {
             encendida = true;
             Console.WriteLine("Se ha encendido v");
-            n.Encender();
-            verificar();
+            
+            new Task(verificar).Start();
         }
         public void Apagar()
         {
             encendida = false;
             Console.WriteLine("Se apago la maquina v");
-            n.Apagar();
+            
         }
         public void Reiniciar()
         {
-            memoria -= 10;
+            memoria -= 40;
             Encender();
         }
         void verificar()
@@ -39,7 +44,8 @@ namespace Laboratorio4
             while (encendida == true)
             {
                 memoria += 1;
-                if (memoria == 40)
+                System.Threading.Thread.Sleep(1000);
+                if (memoria == 26)
                 {
                     Console.WriteLine("Verificacion Memoria llena");
                     Apagar();

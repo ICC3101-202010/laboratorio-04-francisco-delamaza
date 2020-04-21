@@ -14,12 +14,17 @@ namespace Laboratorio4
             get => memoria;
             set => memoria = value;
         }
-        bool encendida = false;
+        public bool encendida = false;
+        public bool Encendida  // read-write instance property
+        {
+            get => encendida;
+            set => encendida = value;
+        }
         public void Encender()
         {
             encendida = true;
             Console.WriteLine("Se ha encendido m");
-            empaquetar();
+            new Task(empaquetar).Start();
         }
         public void Apagar()
         {
@@ -28,7 +33,7 @@ namespace Laboratorio4
         }
         public void Reiniciar()
         {
-            memoria -= 10;
+            memoria -= 70;
             Encender();
         }
 
@@ -37,7 +42,8 @@ namespace Laboratorio4
             while (encendida == true)
             {
                 memoria += 1;
-                if (memoria == 70)
+                System.Threading.Thread.Sleep(1000);
+                if (memoria == 17)
                 {
                     Console.WriteLine("empaque Memoria llena");
                     Apagar();
